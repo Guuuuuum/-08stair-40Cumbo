@@ -1,0 +1,8 @@
+//Ammo refill
+player setAmmo [CurrentWeapon player, 200];
+_a = {_x isEqualto primaryWeaponMagazine select 0} count magazinesAmmo player;
+for [{_i=1}, {_i<=_a}, {_i=_i+1}] do
+{
+    player removemagazine primaryWeaponMagazine select 0;
+};
+player addmagazine [primaryWeaponMagazine select 0,_a];
