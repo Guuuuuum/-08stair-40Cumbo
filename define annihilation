@@ -1,0 +1,14 @@
+//Define when annihilation
+while (true) do {
+  if (count playableunits == 0) then {
+  [] spawn Gameover;
+  };
+};
+//same
+while (true) do {
+  if (playableunits isEqualto []) then {
+  [] spawn Gameover;
+  };
+};
+  
+  
