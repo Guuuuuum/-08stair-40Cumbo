@@ -1,5 +1,6 @@
 //Ammo refill
-player setAmmo [CurrentWeapon player, 200];
+player setAmmo [primaryWeaponMagazine player select 0, 200];
+player setAmmo [secondaryWeaponMagazine player select 0, 200];
 _mplayer = primaryWeaponMagazine player select 0;
 _a = {_x == _mplayer} count itemsWithMagazines player;
 for [{_i=1}, {_i<=_a}, {_i=_i+1}] do
@@ -7,3 +8,11 @@ for [{_i=1}, {_i<=_a}, {_i=_i+1}] do
     player removeItem (_mplayer)
 };
 player addmagazines [_mplayer,_a];
+
+_splayer = secondaryWeaponMagazine player select 0;
+_b = {_x == _splayer} count itemsWithMagazines player;
+for [{_i=1}, {_i<=_a}, {_i=_i+1}] do
+{
+    player removeItem (_splayer)
+};
+player addmagazines [_splayer,_a];
