@@ -1,0 +1,32 @@
+AddonDetect = {
+{
+	if (!( ["bin\config.bin/CfgPatches/A3_",str _x] call BIS_fnc_inString)
+	 and !(str _x == "bin\config.bin/CfgPatches/3DEN")
+	 and !(str _x == "bin\config.bin/CfgPatches/Map_VR")
+	 and !(str _x == "bin\config.bin/CfgPatches/A3Data")
+		) 	then {
+	[player,configname _x] RemoteExec ["sidechat"];
+		}
+	} forEach ("true" configClasses (configfile >> "CfgPatches"));
+};
+
+[] RemoteExec ["AddonDetect",Allplayers select n];
+
+
+//v2
+
+AddonDetect = {
+blankarray = [];
+{
+	if (!( ["bin\config.bin/CfgPatches/A3_",str _x] call BIS_fnc_inString)
+	 and !(str _x == "bin\config.bin/CfgPatches/3DEN")
+	 and !(str _x == "bin\config.bin/CfgPatches/Map_VR")
+	 and !(str _x == "bin\config.bin/CfgPatches/A3Data")
+		) 	then {
+	blankarray pushback configname _x;
+		}
+	} forEach ("true" configClasses (configfile >> "CfgPatches"));
+publicvariable "blankarray";
+};
+//need long reset time
+[] RemoteExec ["AddonDetect",Allplayers select n]; systemchat str blankarray;
