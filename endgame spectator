@@ -1,0 +1,14 @@
+["Initialize", [player, [], true]] call BIS_fnc_EGSpectator;
+
+If the spectator mode is active and you would like to terminate it, run the following function:
+["Terminate"] call BIS_fnc_EGSpectator;
+
+Description.ext
+respawn = 3;
+respawnDelay = 60;
+
+
+
+
+onPlayerKilled.sqf ["Initialize", [player, [], true]] call BIS_fnc_EGSpectator;
+onPlayerRespawn.sqf ["Terminate"] call BIS_fnc_EGSpectator;
