@@ -1,0 +1,147 @@
+stopRope = true;
+_trg = createTrigger ["EmptyDetector", [0,0,0]];
+_trg setTriggerArea [0, 0, 0, false];
+_trg setTriggerActivation ["NONE", "PRESENT", true];
+_trg setTriggerStatements ["vehicle player isKindof 'helicopter'",
+"
+[true] spawn MovedInHeli
+",
+
+"
+[false] spawn MovedInHeli
+"];
+
+
+MovedInHeli = {
+params ["_status"];
+_status = _this select 0;
+if (_status) then {
+if ( (typeof vehicle player == "B_Heli_Transport_01_F" or typeof vehicle player == "B_Heli_Transport_01_camo_F") && (!(driver vehicle player == player) && !(gunner vehicle player == player) && !(commander vehicle player == player)) ) then {
+Tiedrappel = player addAction [
+	"Tie rope for Rappel down",
+	{[vehicle player] spawn TieRope; vehicle player RemoveAction (_this select 2)},
+	[], 4, false, false, "",
+	"StopRope"
+	]; 
+	};
+	} else {
+	if (!isnil "Tiedrappel") then { player removeAction Tiedrappel};
+	};
+};
+
+
+
+TieRope = {
+params ["_heli"];
+_heli = _this select 0;
+
+_heli animateDoor ["Door_R", 1, false];	
+_heli animateDoor ["Door_L", 1, false];
+stopRope = false;
+
+sleep 5;
+_eh = _heli addEventHandler ["GetOut", {[_this select 0,_this select 2] spawn GetoutRope}];
+systemchat "Ropes tied well. good to go";
+
+_untie = player addAction [
+	"Untie rope",
+	{
+	[vehicle player,nil,objnull] spawn ropestop;
+	player RemoveAction (_this select 2)
+	},
+	[], 4, false, false, "",
+	"(typeof vehicle player == 'B_Heli_Transport_01_F' or typeof vehicle player == 'B_Heli_Transport_01_camo_F') && (!(driver vehicle player == player) && !(gunner vehicle player == player) && !(commander vehicle player == player)) && !StopRope"
+	];
+waituntil {stopRope or !(vehicle player isKindof "helicopter") or !(alive player)};
+player removeAction _untie;
+_heli removeEventHandler ["Getout", _eh];
+};
+
+
+
+ropestop = {
+params ["_heli","_rope"];
+_heli = _this select 0;
+_rope = _this select 1;
+
+if (count (ropes _heli) < 1) then {
+		_heli animateDoor ["Door_R", 0, false];
+		_heli animateDoor ["Door_L", 0, false];
+	};
+	stopRope = true;
+if (!isNull ropeAttachedTo player) then {deletevehicle _rope};
+if (!isNull _rope) then {
+	ropeunwind [_rope,8,0.5];
+	waituntil {ropeLength _rope < 1};
+	deletevehicle _rope
+	};
+};
+
+
+/*
+player addeventhandler ["GetOutMan",{
+if ((_this select 1) == "cargo" and (_this select 2) isKindof "helicopter") then {};//spawn  something; can be use AFTER 1.57
+
+}];
+*/
+
+
+GetoutRope = {
+	params ["_heli","_xb"];
+	_heli = _this select 0;
+	_xb = _this select 1;
+	StopRope = true;
+	
+	
+_movefunction =	{
+		params ["_heli","_xb"];
+		_heli = _this select 0;
+		_xb = _this select 1;
+		if ((_this select 1) == 17 and (getPosATL _xb select 2 > 1)) then	{ //_this need to fix by params
+		
+			ropeUnwind [_rope,5,1,true];
+
+			};
+			if ((_this select 1) == 31) then {
+				if ((GetposATL _xb select 2) < 1) then {_xb setVelocity [(velocity vehicle _xb) select 0, (velocity vehicle _xb) select 1, 3]};
+
+				if ((GetposATL _heli select 2) - (GetposATL _xb select 2) < 1.2) then {
+					_heli animateDoor ["Door_R", 1, false];
+					_heli animateDoor ["Door_L", 1, false];		
+					_xb action ["getInCargo", _heli];
+					[_heli,_rope] spawn ropestop
+				};
+
+				ropeUnwind [_rope,1,-1,true];
+
+			};
+			_down = true;
+		
+		};
+	
+	
+if (random 1 > 0.5) then {
+	_rope = ropeCreate [_heli, [0.7,2,-0.2], _xb, [0, 0, 0], 2];
+	} else {_rope = ropeCreate [_heli, [-0.7,2,-0.2], _xb, [0, 0, 0], 2];
+};
+	
+_cutaction = {
+		params ["_heli","_rope"];
+		_heli = _this select 0;
+		_rope = _this select 1;
+	ropecut [_rope,ropeLength _rope];
+	_xb RemoveAction (_this select 2);
+	[_heli,_rope] spawn ropestop;
+	(findDisplay 46) displayRemoveEventHandler ["KeyDown", _deh];
+};
+	
+	
+	
+	_deh = (findDisplay 46) displayAddEventHandler 
+		["KeyDown",[_heli,_xb] call _movefunction];
+	
+	_xb addAction ["Release Rope",[_heli,_rope] call _cutaction,nil,0,true,true];
+waituntil {!(vehicle player isKindof "helicopter") or !(alive player)};
+//player removeAction _untie;
+(findDisplay 46) displayRemoveEventHandler ["KeyDown", _deh];
+};
