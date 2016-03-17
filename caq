@@ -94,15 +94,16 @@ GetoutRope = {
 	
 	
 _movefunction =	{
-		params ["_heli","_xb"];
+		params ["_heli","_xb","_key"];
 		_heli = _this select 0;
 		_xb = _this select 1;
-		if ((_this select 1) == 17 and (getPosATL _xb select 2 > 1)) then	{ //_this need to fix by params
+		_key = _this select 2;
+		if (_key == 17 and (getPosATL _xb select 2 > 1)) then	{ //_this need to fix by params
 		
 			ropeUnwind [_rope,5,1,true];
 
 			};
-			if ((_this select 1) == 31) then {
+			if (_key == 31) then {
 				if ((GetposATL _xb select 2) < 1) then {_xb setVelocity [(velocity vehicle _xb) select 0, (velocity vehicle _xb) select 1, 3]};
 
 				if ((GetposATL _heli select 2) - (GetposATL _xb select 2) < 1.2) then {
@@ -138,7 +139,7 @@ _cutaction = {
 	
 	
 	_deh = (findDisplay 46) displayAddEventHandler 
-		["KeyDown",[_heli,_xb] call _movefunction];
+		["KeyDown",[_heli,_xb,_this select 1] call _movefunction];
 	
 	_xb addAction ["Release Rope",[_heli,_rope] call _cutaction,nil,0,true,true];
 waituntil {!(vehicle player isKindof "helicopter") or !(alive player)};
