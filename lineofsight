@@ -1,0 +1,30 @@
+private ["_a","_b","_dirTo","_eyeD","_eyePb","_eyePa","_eyeDV"];
+//Player
+_a = _this select 0;
+//AI to see or not
+_b = _this select 1;
+// _a == 플레이어, _b == 플레이어가 보임/안보임을 출력할 유닛
+// array select n == 해당 array의 인덱스 n의 값
+while {true} do {
+_eyeDV = eyeDirection _b; // eyeDirection == 눈 시야의 3D벡터 방향값 
+_eyeD = ((_eyeDV select 0) atan2 (_eyeDV select 1)); // atna2 == ArcTangent of x/y 아크탄젠트
+if (_eyeD < 0) then {_eyeD = 360 + _eyeD}; //_eyeD를 360 round로 만듬.
+_dirTo = [_b, _a] call BIS_fnc_dirTo; //[a, b] call BIS_fnc_dirTo .a와 b의 벡터 방향값
+_eyePb = eyePos _b;
+_eyePa = eyePos _a;
+if ((abs(_dirTo - _eyeD) >= 90 && (abs(_dirTo - _eyeD) <= 270)) || // 시야 범위 안에 있거나. // abs == 절대값
+ (lineIntersects [_eyePb, _eyePa]) || //a와 b가 교차하거나
+ (terrainIntersectASL [_eyePb, _eyePa]) //a와 b의 위치가 지형에 교차하거나 ??
+ ) then {hintsilent "NOT IN SIGHT";} else {hintsilent "IN SIGHT"};
+sleep 0.1;
+};
+
+
+
+
+
+
+
+// bis_fnc_dirto == 
+// lineIntersects == _eyePb와 _eyePa 위치의 가상 선 교차점. 교차할때 true
+// terrainIntersectASL == 위치 a와 b가 지형에 교차하는지. 교차할때 true
