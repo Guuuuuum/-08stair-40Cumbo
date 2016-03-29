@@ -1,0 +1,20 @@
+#include "config.cpp"
+
+taskManagement_markers3D = 1;
+taskManagement_markers2D = 1;
+taskManagement_propagate = 1;
+showGroupIndicator = 1;
+enableDebugConsole = 1;
+forceRotorLibSimulation = 0;
+
+
+
+
+class CfgDebriefingSections
+{
+	class 
+	{
+		title = "사후 강평";
+		variable = "TotalScore";
+	};
+};
