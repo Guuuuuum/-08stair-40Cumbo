@@ -48,6 +48,7 @@ Centerindependent = createCenter independent;
 
 listMaximumPlayers = []; // see in initPlayerServer.sqf
 deadlist = [];
+allievehicle = [];
 
 
 deathplayer = {
@@ -79,9 +80,21 @@ _manlist pushBackUnique _mantext;
 } foreach listMaximumPlayers;
 
 _parsedtext = _manlist joinString ""; 
-TotalScore = _parsedtext;
+
+//need to define spawned vehicles first
+// in vehicle init. set NAME variable first.
+allievehicle pushbackuniqle this;
+
+
+
+
+
+
+
+//TotalScore = _parsedtext;
 publicvariable "TotalScore";
 };
+
 
 
 
