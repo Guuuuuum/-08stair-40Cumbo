@@ -1,0 +1,41 @@
+    _plane = _this;
+    _Lturrets = [];
+    _Rturrets = [];
+    winggunners = [];
+    for [{private _i = 0}, {_i < 3}, {_i = _i + 1}] do {
+        _tp = "O_HMG_01_F" createVehicle position _plane;
+        _Lturrets pushback _tp;
+    };
+
+    for [{private _i = 0}, {_i < 3}, {_i = _i + 1}] do {
+        _tp = "O_HMG_01_F" createVehicle position _plane;
+        _Rturrets pushback _tp;
+    };
+
+    {
+        _x attachto [_plane,[-3 + (_foreachIndex*0.5),0.3,0]];
+        _gu = createAgent [typeof player, position player, [], 0, "FORM"];
+        _gu moveinAny _x;
+        winggunners pushBack _gu;
+    } forEach _Lturrets;
+
+    {
+        _x attachto [_plane,[3 - (_foreachIndex*0.5),0.3,0]];
+        _gu = createAgent [typeof player, position player, [], 0, "FORM"];
+        _gu moveinAny _x;
+        winggunners pushBack _gu;
+    } forEach _Rturrets;
+
+    findDisplay 46 displayAddeventHandler ["MouseButtonDown", {
+        if (inputAction "DefaultAction" != 0) then { 
+            0 = 0 spawn {
+                while {inputAction "DefaultAction" != 0} do {
+                    {
+                        _veh = vehicle _x;
+                        _veh action ["UseWeapon", _veh, gunner _veh, 0];
+                    } foreach winggunners;
+                    uiSleep 0.01;
+                };
+            };
+        };
+    }];
