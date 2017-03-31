@@ -1,0 +1,152 @@
+FAR_Player_Unconscious =
+{
+	private["_unit", "_killer"];
+	_unit = _this select 0;
+	_killer = _this select 1;
+	
+	if (FAR_EnableDeathMessages && !isNil "_killer" && isPlayer _killer && _killer != _unit) then
+	{
+		FAR_deathMessage = [_unit, _killer];
+		publicVariable "FAR_deathMessage";
+		["FAR_deathMessage", [_unit, _killer]] call FAR_public_EH;
+	};
+	
+	if (isPlayer _unit) then
+	{
+		
+		titleText ["", "BLACK FADED"];
+	};
+	
+
+	while {vehicle _unit != _unit} do 
+	{
+		unAssignVehicle _unit;
+		_unit action ["eject", vehicle _unit];
+		
+		sleep 2;
+	};
+	
+	_unit setDamage 0;
+    _unit setVelocity [0,0,0];
+    _unit allowDamage false;
+	_unit setCaptive true;
+    _unit playMove "AinjPpneMstpSnonWrflDnon_rolltoback";
+	
+	sleep 4;
+    
+	if (isPlayer _unit) then
+	{
+		titleText ["", "BLACK IN", 1];
+		disableUserInput false;
+
+		_unit setVariable ["ace_sys_wounds_uncon", true];
+	};
+	
+	_unit switchMove "AinjPpneMstpSnonWrflDnon";
+	_unit enableSimulation false;
+	_unit setVariable ["FAR_isUnconscious", 1, true];
+	
+
+	if (isPlayer _unit) then 
+	{
+		_bleedOut = time + FAR_BleedOut;
+		
+		while { !isNull _unit && alive _unit && _unit getVariable "FAR_isUnconscious" == 1 && _unit getVariable "FAR_isStabilized" == 0 && (FAR_BleedOut <= 0 || time < _bleedOut) } do
+		{
+			hintSilent format["Bleedout in %1 seconds\n\n%2", round (_bleedOut - time), call FAR_CheckFriendlies];
+			
+			sleep 0.5;
+		};
+		
+		if (_unit getVariable "FAR_isStabilized" == 1) then {
+
+			_unit setVariable ["ace_sys_wounds_uncon", false];
+			
+			while { !isNull _unit && alive _unit && _unit getVariable "FAR_isUnconscious" == 1 } do
+			{
+				hintSilent format["You have been stabilized\n\n%1", call FAR_CheckFriendlies];
+				
+				sleep 0.5;
+			};
+		};
+		
+
+		if (FAR_BleedOut > 0 && {time > _bleedOut} && {_unit getVariable ["FAR_isStabilized",0] == 0}) then
+		{
+			_unit setDamage 1;
+		}
+		else
+		{
+
+			_unit setVariable ["FAR_isStabilized", 0, true];
+			sleep 6;
+			
+
+			hintSilent "";
+
+
+			if (isPlayer _unit) then
+			{
+				_unit setVariable ["ace_sys_wounds_uncon", false];
+			};
+			
+			_unit enableSimulation true;
+			_unit allowDamage true;
+			_unit setDamage 0;
+			_unit setCaptive false;
+			
+			_unit playMove "amovppnemstpsraswrfldnon";
+			_unit playMove "";
+			player spawn gCrashedViewBugFix;
+			
+
+		};
+	}
+	else
+	{
+
+		_bleedOut = time + FAR_BleedOut;
+		
+		while { !isNull _unit && alive _unit && _unit getVariable "FAR_isUnconscious" == 1 && _unit getVariable "FAR_isStabilized" == 0 && (FAR_BleedOut <= 0 || time < _bleedOut) } do
+		{
+			sleep 0.5;
+		};
+		
+		if (_unit getVariable "FAR_isStabilized" == 1) then {			
+			while { !isNull _unit && alive _unit && _unit getVariable "FAR_isUnconscious" == 1 } do
+			{
+				sleep 0.5;
+			};
+		};
+		
+
+		if (FAR_BleedOut > 0 && {time > _bleedOut} && {_unit getVariable ["FAR_isStabilized",0] == 0}) then
+		{
+			_unit setDamage 1;
+			_unit setVariable ["FAR_isUnconscious", 0, true];
+			_unit setVariable ["FAR_isDragged", 0, true];
+		}
+	};
+};
+
+
+gCrashedViewBugFix = {
+private _unit = _this;
+
+if (isNil "dummySelectPlayer") then {
+		if (isNil "dummyUnitGrp") then {
+			dummyUnitGrp = createGroup west;
+			publicVariable "dummyUnitGrp";
+		};
+		
+		dummySelectPlayer = dummyUnitGrp createUnit [typeof player,[0,0,3],[],0,"NONE"];
+		dummySelectPlayer allowdamage false;
+		dummySelectPlayer enableSimulation false;
+		
+	} else {
+		if (isNull dummySelectPlayer) then {systemChat "Your dummy unit removed. ask to admin"};
+	};
+
+selectPlayer dummySelectPlayer;
+selectplayer _unit;
+};
