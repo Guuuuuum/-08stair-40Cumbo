@@ -1,0 +1,339 @@
+<!--
+Container Example
+  		<Container name="T1_Gerald_Bull">
+			<Key ID="STR_Gerald Bull">
+			<English>Ultimatum</English>
+			<Korean>최후통첩</Korean>
+			</Key>
+		</Container>
+ -->
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="KC">
+  <Package name="Mission">
+  		<Container name="T1_Gerald_Bull">
+			<Key ID="STR_Gerald Bull">
+				<English>최후통첩</English>
+				<Korean>최후통첩</Korean>
+			</Key>
+			<Key ID="STR_T1_Description">
+				<English>우리의 타겟, '제랄드 불'은 여러 번의 경고를 무시하고-혹은 경고인지도 몰랐다거나-,적국을 위한 무기 개발에 열중하여 국가안보를 상당히 위협하게 될 것이라 판단.정보부에선 코드네임 '대포병 사격'을 발동했다. 이전부터 추적 중이던 정보원과 접촉하여 상세한 정보를 넘겨받은 뒤, 행동에 옮길 것이다.</English>
+				<Korean>우리의 타겟, '제랄드 불'은 여러 번의 경고를 무시하고-혹은 경고인지도 몰랐다거나-,적국을 위한 무기 개발에 열중하여 국가안보를 상당히 위협하게 될 것이라 판단.정보부에선 코드네임 '대포병 사격'을 발동했다. 이전부터 추적 중이던 정보원과 접촉하여 상세한 정보를 넘겨받은 뒤, 행동에 옮길 것이다.</Korean>
+			</Key>
+			<Key ID="STR_T1_1_Description">
+				<English>적이 선수를 쳤다. 우리의 정보원은 죽었지만,분명 참고할만한 자료를 가지고 왔을 것이다. 건물 내부에 뭐가 남아있는지 확인하자.</English>
+				<Korean>적이 선수를 쳤다. 우리의 정보원은 죽었지만,분명 참고할만한 자료를 가지고 왔을 것이다. 건물 내부에 뭐가 남아있는지 확인하자.</Korean>
+			</Key>
+			<Key ID="STR_T1_2_Description">
+				<English>그가 지도를 가지고 왔었다. 제랄드 불에 대한 위치정보와 그가 체류중인 시설에 관한 정보가 기록되어 있다. 서쪽에 감시초소가 있고, 동쪽 바위그늘에 작은 오두막에서 위치가 확인되었다고 적혀있다. 또한 좀더 북쪽에 위장막으로 가려진 무언가가 있다는 언급이 있다. 매복을 당하기 쉬운 지형이니, 적의 동태를 주의깊게 주시하고 지뢰를 조심하자.</English>
+				<Korean>그가 지도를 가지고 왔었다. 제랄드 불에 대한 위치정보와 그가 체류중인 시설에 관한 정보가 기록되어 있다. 서쪽에 감시초소가 있고, 동쪽 바위그늘에 작은 오두막에서 위치가 확인되었다고 적혀있다. 또한 좀더 북쪽에 위장막으로 가려진 무언가가 있다는 언급이 있다. 매복을 당하기 쉬운 지형이니, 적의 동태를 주의깊게 주시하고 지뢰를 조심하자.</Korean>
+			</Key>
+			<Key ID="STR_T1_3_Description">
+				<English>제랄드 불은 다른 곳도 아닌,초병들과 오두막에서 같이 있었다. 이제는 이곳을 탈출할 시간이다. 그 전에, 잠좀 자고..</English>
+				<Korean>제랄드 불은 다른 곳도 아닌,초병들과 오두막에서 같이 있었다. 이제는 이곳을 탈출할 시간이다. 그 전에, 잠좀 자고..</Korean>
+			</Key>
+			<Key ID="STR_T1_destroyhelisucceeded">
+				<English>탈출 보트 근처에서 수색중이던 헬기를 격추했다. 이제 안심하고 이동할 수 있을 것 같다.</English>
+				<Korean>탈출 보트 근처에서 수색중이던 헬기를 격추했다. 이제 안심하고 이동할 수 있을 것 같다.</Korean>
+			</Key>
+			<Key ID="STR_T1_Camping">
+				<English>잠깐의 휴식</English>
+				<Korean>잠깐의 휴식</Korean>
+			</Key>
+			<Key ID="STR_T1_CampingD">
+				<English>어제부터 침투를 위해 새벽부터 걸었으니,이곳을 탈출하기 전에 반드시 휴식을 취해야만 한다. 안 그럼 가다가 땅에 얼굴을 쳐박고 졸고 있게 되겠지.</English>
+				<Korean>어제부터 침투를 위해 새벽부터 걸었으니,이곳을 탈출하기 전에 반드시 휴식을 취해야만 한다. 안 그럼 가다가 땅에 얼굴을 쳐박고 졸고 있게 되겠지.</Korean>
+			</Key>
+			<Key ID="STR_T1_escaped">
+				<English>집에 가는 날</English>
+				<Korean>집에 가는 날</Korean>
+			</Key>
+			<Key ID="STR_T1_escapedD">
+				<English>요인 암살을 성공적으로 마치고 탈출했다.우리의 국가는 암살 의혹을 받게 되었다. 좋을 리 없어! 왜 우리는 국가 안보를 수호하기 위해 위험요소들을 적절히 처리하지 않는거지? 내가 개인적으로 이 요인 암살을 막는다 해도, 우리 이스라엘은 아이들에게 어떤 곳이 돼버리겠나? 그리고 이집트와 이라크,그리고...아, 인류의 앞날은 어둡다!</English>
+				<Korean>요인 암살을 성공적으로 마치고 탈출했다.우리의 국가는 암살 의혹을 받게 되었다. 좋을 리 없어! 왜 우리는 국가 안보를 수호하기 위해 위험요소들을 적절히 처리하지 않는거지? 내가 개인적으로 이 요인 암살을 막는다 해도, 우리 이스라엘은 아이들에게 어떤 곳이 돼버리겠나? 그리고 이집트와 이라크,그리고...아, 인류의 앞날은 어둡다!</Korean>
+			</Key>
+			<Key ID="STR_T1_DestroyHeli">
+				<English>밑작업</English>
+				<Korean>밑작업</Korean>
+			</Key>
+			<Key ID="STR_T1_escape">
+				<English>다행히도, 자는 동안 수색대는 찾아오지 않았고,알티스에 많다는 그 뱀에게도 물리지 않았다. 휴식한 만큼 부지런히 움직이자.</English>
+				<Korean>다행히도, 자는 동안 수색대는 찾아오지 않았고,알티스에 많다는 그 뱀에게도 물리지 않았다. 휴식한 만큼 부지런히 움직이자.</Korean>
+			</Key>
+			<Key ID="STR_T1_DestroyHeliD">
+				<English>우리의 탈출 지점에 공격헬기가 수색중이다. 잠수함도 아니고 보트로 탈출하니만큼,저놈의 카이만은 반드시 파괴되어야 한다.</English>
+				<Korean>우리의 탈출 지점에 공격헬기가 수색중이다. 잠수함도 아니고 보트로 탈출하니만큼,저놈의 카이만은 반드시 파괴되어야 한다.</Korean>
+			</Key>
+		</Container>
+		<Container name="T2_Sprint">
+			<Key ID="STR_T2_Sprint">
+				<English>전력질주</English>
+				<Korean>전력질주</Korean>
+			</Key>
+			<Key ID="STR_T2_EVAC">
+				<English>탈출</English>
+				<Korean>탈출</Korean>
+			</Key>
+			<Key ID="STR_T2_EVACD">
+				<English>우리가 습격하기 무섭게 그놈은 엉청난 속도로 자택을 빠져나가 도망쳤지만, 다행히 별 문제 없이 추격하여,사살에 성공했다. 이제 여길 빠져나갈 시간이다.</English>
+				<Korean>우리가 습격하기 무섭게 그놈은 엉청난 속도로 자택을 빠져나가 도망쳤지만, 다행히 별 문제 없이 추격하여,사살에 성공했다. 이제 여길 빠져나갈 시간이다.</Korean>
+			</Key>
+			<Key ID="STR_T2_SprintD">
+				<English>그동안 타겟을 제거하려는 여러 시도를 해왔으나,육상에선  타겟에게 동조하는 난폭한 민간인들에게 작전을 들키기 일쑤였고, 요즘 듣기로는 대공화기가 많아져서 항공침투도 어렵게 되었다. 그놈이 위협을 느껴 잠적을 하기 시작하면 더 이상 기회는 없으므로, 이번 강습에 작전의 사활을 걸고 반드시 타겟을 사살해야 한다.</English>
+				<Korean>그동안 타겟을 제거하려는 여러 시도를 해왔으나,육상에선  타겟에게 동조하는 난폭한 민간인들에게 작전을 들키기 일쑤였고, 요즘 듣기로는 대공화기가 많아져서 항공침투도 어렵게 되었다. 그놈이 위협을 느껴 잠적을 하기 시작하면 더 이상 기회는 없으므로, 이번 강습에 작전의 사활을 걸고 반드시 타겟을 사살해야 한다.</Korean>
+			</Key>
+		</Container>
+  		<Container name="Common words">
+			<Key ID="STR_Kill">
+				<English>사살</English>
+				<Korean>사살</Korean>
+			</Key>
+			<Key ID="STR_Move">
+				<English>이동</English>
+				<Korean>이동</Korean>
+			</Key>
+			<Key ID="STR_Getin">
+				<English>탑승</English>
+				<Korean>탑승</Korean>
+			</Key>
+			<Key ID="STR_recive">
+				<English>회수</English>
+				<Korean>회수</Korean>
+			</Key>
+		</Container>
+  		<Container name="T3_Fortuna">
+			<Key ID="STR_T3_Fortuna">
+			<English>평범한 물품 회수</English>
+			<Korean>평범한 물품 회수</Korean>
+			</Key>
+			<Key ID="STR_T3_FortunaD">
+			<English>그냥, 평범한 물품 회수 작전입니다.</English>
+			<Korean>그냥, 평범한 물품 회수 작전입니다.</Korean>
+			</Key>
+			<Key ID="STR_T3_ReturnD">
+			<English>정체불명의 노트를 회수했다. 이 작전은 항상 예상한 대로 흘러가지 않는 것 같다.</English>
+			<Korean>정체불명의 노트를 회수했다. 이 작전은 항상 예상한 대로 흘러가지 않는 것 같다.</Korean>
+			</Key>
+			<Key ID="STR_T3_Return">
+			<English>복귀</English>
+			<Korean>복귀</Korean>
+			</Key>
+			<Key ID="STR_T3_takenD">
+			<English>놈들이 먼저 선수를 쳤다. 노트를 가지고갔으니 멀리가지 못했을 거야</English>
+			<Korean>놈들이 먼저 선수를 쳤다. 노트를 가지고갔으니 멀리가지 못했을 거야</Korean>
+			</Key>
+			<Key ID="STR_T3_taken">
+			<English>지각</English>
+			<Korean>지각</Korean>
+			</Key>
+			<Key ID="STR_T3_gobackD">
+			<English>이게 아닌가보다. 그냥 백지밖에 안 쓰여있더만 이상한걸 눈치챘어야 했다..</English>
+			<Korean>이게 아닌가보다. 그냥 백지밖에 안 쓰여있더만 이상한걸 눈치챘어야 했다..</Korean>
+			</Key>
+			<Key ID="STR_T3_goback">
+			<English>똥개훈련</English>
+			<Korean>똥개훈련</Korean>
+			</Key>
+			<Key ID="STR_T3_bomb">
+			<English>회수 물품이 폭탄이었습니다! 카운트다운은 시작되었고, 시간 내에 복귀해 폭탄을 헤체해야 합니다.</English>
+			<Korean>회수 물품이 폭탄이었습니다! 카운트다운은 시작되었고, 시간 내에 복귀해 폭탄을 헤체해야 합니다.</Korean>
+			</Key>
+		</Container>
+  		<Container name="T4_Split">
+			<Key ID="STR_T4_Split">
+			<English>STR_T4_Split</English>
+			<Korean>STR_T4_Split</Korean>
+			</Key>
+			<Key ID="STR_T4_SplitD">
+			<English>STR_T4_SplitD</English>
+			<Korean>STR_T4_SplitD</Korean>
+			</Key>
+			<Key ID="STR_T4_Escape">
+			<English>STR_T4_Escape</English>
+			<Korean>STR_T4_Escape</Korean>
+			</Key>
+			<Key ID="STR_T4_EscapeD">
+			<English>STR_T4_EscapeD</English>
+			<Korean>STR_T4_EscapeD</Korean>
+			</Key>
+			<Key ID="STR_T4_Regroup">
+			<English>STR_T4_Regroup</English>
+			<Korean>STR_T4_Regroup</Korean>
+			</Key>
+			<Key ID="STR_T4_RegroupD">
+			<English>STR_T4_RegroupD</English>
+			<Korean>STR_T4_RegroupD</Korean>
+			</Key>
+			<Key ID="STR_T4_AA">
+			<English>STR_T4_AA</English>
+			<Korean>STR_T4_AA</Korean>
+			</Key>
+			<Key ID="STR_T4_AAD">
+			<English>STR_T4_AAD</English>
+			<Korean>STR_T4_AAD</Korean>
+			</Key>
+			<Key ID="STR_T4_roadblock">
+			<English>STR_T4_roadblock</English>
+			<Korean>STR_T4_roadblock</Korean>
+			</Key>
+			<Key ID="STR_T4_roadblockD">
+			<English>STR_T4_roadblockD</English>
+			<Korean>STR_T4_roadblockD</Korean>
+			</Key>
+			<Key ID="STR_T4_mine">
+			<English>STR_T4_mine</English>
+			<Korean>STR_T4_mine</Korean>
+			</Key>
+			<Key ID="STR_T4_mineD">
+			<English>STR_T4_mineD</English>
+			<Korean>STR_T4_mineD</Korean>
+			</Key>
+			<Key ID="STR_T4_Jammer">
+			<English>STR_T4_Jammer</English>
+			<Korean>STR_T4_Jammer</Korean>
+			</Key>
+			<Key ID="STR_T4_JammerD">
+			<English>STR_T4_JammerD</English>
+			<Korean>STR_T4_JammerD</Korean>
+			</Key>
+		</Container>
+  		<Container name="T5_Container">
+			<Key ID="STR_T5_Container">
+			<English>STR_T5_Container</English>
+			<Korean>STR_T5_Container</Korean>
+			</Key>
+			<Key ID="STR_T5_ContainerD">
+			<English>STR_T5_ContainerD</English>
+			<Korean>STR_T5_ContainerD</Korean>
+			</Key>
+			<Key ID="STR_T5_Quad">
+			<English>STR_T5_Quad</English>
+			<Korean>STR_T5_Quad</Korean>
+			</Key>
+			<Key ID="STR_T5_QuadD">
+			<English>STR_T5_QuadD</English>
+			<Korean>STR_T5_QuadD</Korean>
+			</Key>
+			<Key ID="STR_T5_SteelRain">
+			<English>STR_T5_SteelRain</English>
+			<Korean>STR_T5_SteelRain</Korean>
+			</Key>
+			<Key ID="STR_T5_SteelRainD">
+			<English>STR_T5_SteelRainD</English>
+			<Korean>STR_T5_SteelRainD</Korean>
+			</Key>
+			<Key ID="STR_T5_Repack">
+			<English>STR_T5_Repack</English>
+			<Korean>STR_T5_Repack</Korean>
+			</Key>
+			<Key ID="STR_T5_RepackD">
+			<English>STR_T5_RepackD</English>
+			<Korean>STR_T5_RepackD</Korean>
+			</Key>
+		</Container>
+  		<Container name="T6_IntoFrorest">
+			<Key ID="T6_STR_IntoFrorest">
+			<English>숲 속으로</English>
+			<Korean>숲 속으로</Korean>
+			</Key>
+			<Key ID="T6_STR_IntoFrorestD">
+			<English>FIA 반군들의 은신처의 위치를 알아냈다. 계곡 사이의 요새화된 좁은 통로는 공격을 하기 힘든 위치지만, 직접 들어가 소탕하는 것 말곤 딱히 수가 없다. 계곡 위로 올라가면 오히려 노출되어 위험해지니, 방어가 뚫기 어렵더라도 아래로 진입해야 한다.진입 후, 숲 속에 은닉된 무기상자들도 찾아내 파괴해야한다.</English>
+			<Korean>FIA 반군들의 은신처의 위치를 알아냈다. 계곡 사이의 요새화된 좁은 통로는 공격을 하기 힘든 위치지만, 직접 들어가 소탕하는 것 말곤 딱히 수가 없다. 계곡 위로 올라가면 오히려 노출되어 위험해지니, 방어가 뚫기 어렵더라도 아래로 진입해야 한다.진입 후, 숲 속에 은닉된 무기상자들도 찾아내 파괴해야한다.</Korean>
+			</Key>
+			<Key ID="T6_STR_IntoFrorest">
+			<English>숲 속으로</English>
+			<Korean>숲 속으로</Korean>
+			</Key>
+			<Key ID="T6_STR_Cache1">
+			<English>무기상자 파괴 1</English>
+			<Korean>무기상자 파괴 1</Korean>
+			</Key>
+			<Key ID="T6_STR_Cache1D">
+			<English>FIA가 군수물자들을 숲 속에 흩어 숨겨두었다. 첫 번째 상자는 숲속의 감시탑에 존재한다.</English>
+			<Korean>FIA가 군수물자들을 숲 속에 흩어 숨겨두었다. 첫 번째 상자는 숲속의 감시탑에 존재한다.</Korean>
+			</Key>
+			<Key ID="T6_STR_Cache2">
+			<English>무기상자 파괴 2</English>
+			<Korean>무기상자 파괴 2</Korean>
+			</Key>
+			<Key ID="T6_STR_Cache2D">
+			<English>FIA가 군수물자들을 숲 속에 흩어 숨겨두었다. 두 번째 상자는 숲 안쪽 탁 트인 집 안에 존재한다.</English>
+			<Korean>FIA가 군수물자들을 숲 속에 흩어 숨겨두었다. 두 번째 상자는 숲 안쪽 탁 트인 집 안에 존재한다.</Korean>
+			</Key>
+			<Key ID="T6_STR_Cache3">
+			<English>무기상자 파괴 3</English>
+			<Korean>무기상자 파괴 3</Korean>
+			</Key>
+			<Key ID="T6_STR_Cache3D">
+			<English>FIA가 군수물자들을 숲 속에 흩어 숨겨두었다. 세 번째 상자는 숲 가운데의 빈민가에 숨겨져있다.</English>
+			<Korean>FIA가 군수물자들을 숲 속에 흩어 숨겨두었다. 세 번째 상자는 숲 가운데의 빈민가에 숨겨져있다.</Korean>
+			</Key>
+			</Key>
+			<Key ID="T6_STR_Return">
+			<English> 복귀</English>
+			<Korean>복귀</Korean>
+			</Key>
+			<Key ID="T6_STR_ReturnD">
+			<English>임무를 모두 완수했다. 적의 증원병력이 곧 도착하니 급히 여기서 탈출해야 한다. 트럭은 우리가 내렸던 곳에서 기다리고 있을 것이다.</English>
+			<Korean>임무를 모두 완수했다. 적의 증원병력이 곧 도착하니 급히 여기서 탈출해야 한다. 트럭은 우리가 내렸던 곳에서 기다리고 있을 것이다.</Korean>
+			</Key>
+		</Container>
+  		<Container name="T7_Falserat">
+			<Key ID="STR_T7_LastStand">
+			<English>Last Stand</English>
+			<Korean>STR_T7_LastStand</Korean>
+			</Key>
+			<Key ID="STR_T7_LastStandD">
+			<English>STR_T7_LastStandD</English>
+			<Korean>STR_T7_LastStandD</Korean>
+			</Key>
+			<Key ID="STR_T7_Falserat">
+			<English>Draw</English>
+			<Korean>Draw</Korean>
+			</Key>
+			<Key ID="STR_T7_FalseratD">
+			<English>카발라 내에서 전투 중 포위당한 우리 소대는,추가로 증원되는 아군의 효과적인 공격을 위해 적들을 시내 밖으로 유인해야 한다. 최대한 시간을 끌며 적의 관심을 유도하고, 적의 공격을 집중시켜야 한다.</English>
+			<Korean>카발라 내에서 전투 중 포위당한 우리 소대는,추가로 증원되는 아군의 효과적인 공격을 위해 적들을 시내 밖으로 유인해야 한다. 최대한 시간을 끌며 적의 관심을 유도하고, 적의 공격을 집중시켜야 한다.</Korean>
+			</Key>
+			<Key ID="STR_T7_Fuel">
+			<English>통돌이</English>
+			<Korean>통돌이</Korean>
+			</Key>
+			<Key ID="STR_T7_FuelD">
+			<English>주변에 연료 드럼통이 있을지도 모르니 한번 찾아보자.</English>
+			<Korean>주변에 연료 드럼통이 있을지도 모르니 한번 찾아보자.</Korean>
+			</Key>
+			<Key ID="STR_T7_Move">
+			<English>마지막 보루</English>
+			<Korean>마지막 보루</Korean>
+			</Key>
+			<Key ID="STR_T7_MoveD">
+			<English>최종방어지점으로 이동한다. 여기서 버티면 곧 아군이 도착한다.</English>
+			<Korean>최종방어지점으로 이동한다. 여기서 버티면 곧 아군이 도착한다.</Korean>
+			</Key>
+			<Key ID="STR_T7_D1">
+			<English>유인</English>
+			<Korean>유인</Korean>
+			</Key>
+			<Key ID="STR_T7_D1D">
+			<English>첫번째 방어 지점은 공동 묘소이다.이 주변엔 엄폐물로 써먹을 비석이 많다.</English>
+			<Korean>첫번째 방어 지점은 공동 묘소이다.이 주변엔 엄폐물로 써먹을 비석이 많다.</Korean>
+			</Key>
+			<Key ID="STR_T7_D2">
+			<English>농성</English>
+			<Korean>농성</Korean>
+			</Key>
+			<Key ID="STR_T7_D2D">
+			<English>두번째 방어 지점은 외딴 집이다. 사방이 벽으로 둘러쌓여있고 입구는 단 하나뿐이다.</English>
+			<Korean>두번째 방어 지점은 외딴 집이다. 사방이 벽으로 둘러쌓여있고 입구는 단 하나뿐이다.</Korean>
+			</Key>
+			<Key ID="STR_T7_D3">
+			<English>Last Stand</English>
+			<Korean>Last Stand</Korean>
+			</Key>
+			<Key ID="STR_T7_D3D">
+			<English>파로스의 정문이자 최종적으로 적들을 끌어내야 할 위치이다. 언제 올지는 정확히 모르지만 여기서 끝까지 방어해야 한다.</English>
+			<Korean>파로스의 정문이자 최종적으로 적들을 끌어내야 할 위치이다. 언제 올지는 정확히 모르지만 여기서 끝까지 방어해야 한다.</Korean>
+			</Key>
+		</Container>
+  </Package>
+</Project>

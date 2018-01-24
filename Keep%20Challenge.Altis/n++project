@@ -1,0 +1,37 @@
+<NotepadPlus>
+    <Project name="Arma Rogue">
+        <Folder name="SBGF">
+            <File name="SBGF\cfgfunctions.hpp" />
+            <File name="SBGF\fn_buildingPositions.sqf" />
+            <File name="SBGF\fn_garrison.sqf" />
+            <File name="SBGF\fn_groupGarrison.sqf" />
+        </Folder>
+        <Folder name="Tasks">
+            <File name="Tasks\code.sqf" />
+            <File name="Tasks\Container.sqf" />
+            <File name="Tasks\Falserat.sqf" />
+            <File name="Tasks\Fortuna.sqf" />
+            <File name="Tasks\GeraldBull.sqf" />
+            <File name="Tasks\IntoForest.sqf" />
+            <File name="Tasks\refugees.sqf" />
+            <File name="Tasks\Split.sqf" />
+            <File name="Tasks\Sprint.sqf" />
+        </Folder>
+        <File name="Countdown.sqf" />
+        <File name="dbsystem.sqf" />
+        <File name="defines.hpp" />
+        <File name="description.ext" />
+        <File name="dialogs.hpp" />
+        <File name="endofmission.sqf" />
+        <File name="Fastrope.sqf" />
+        <File name="Functions.sqf" />
+        <File name="gamestart.sqf" />
+        <File name="globalscoreboard.sqf" />
+        <File name="HeliCapture.sqf" />
+        <File name="init.sqf" />
+        <File name="mission.sqm" />
+        <File name="stringtable.xml" />
+        <File name="weaponsave.sqf" />
+        <File name="Zen_OccupyHouse.sqf" />
+    </Project>
+</NotepadPlus>
