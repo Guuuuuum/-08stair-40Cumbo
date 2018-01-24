@@ -1,3 +1,9 @@
+/*
+made By Guuuuuum
+https://youtu.be/OkSTad2Q--Q
+http://steamcommunity.com/id/NorthKorea/
+*/
+
 Barrelroll = {
 
 params ["_obj","_player","_act"];
